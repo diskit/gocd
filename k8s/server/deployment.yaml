@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gocd-server
+  name: gocd-server
+  namespace: gocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gocd-server
+  template:
+    metadata:
+      labels:
+        app: gocd-server
+    spec:
+      containers:
+      - image: gocd/gocd-server:v21.2.0
+        name: gocd-server

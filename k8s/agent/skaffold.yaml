@@ -1,0 +1,8 @@
+apiVersion: skaffold/v2beta21
+kind: Config
+metadata:
+  name: gocd-agent
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yaml

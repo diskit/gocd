@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta21
+kind: Config
+metadata:
+  name: gocd-server
+deploy:
+  kubectl:
+    manifests:
+    - ./deployment.yaml
+    - ./service.yaml
+portForward:
+  - resourceName: gocd-server-svc
+    resourceType: Service
+    port: 8153

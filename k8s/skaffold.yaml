@@ -1,0 +1,7 @@
+apiVersion: skaffold/v2beta21
+kind: Config
+metadata:
+  name: gocd
+requires:
+  - path: server/skaffold.yaml
+  - path: agent/skaffold.yaml

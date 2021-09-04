@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gocd-agent
+  name: gocd-agent
+  namespace: gocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gocd-agent
+  template:
+    metadata:
+      labels:
+        app: gocd-agent
+    spec:
+      containers:
+      - name: gocd-agent
+        image: gocd/gocd-agent-ubuntu-18.04:v21.2.0
+        env:
+          - name: GO_SERVER_URL
+            value: http://gocd-server-svc:8153/go
+        resources: {}
+      
